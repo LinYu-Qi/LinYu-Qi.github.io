@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yuqi Lin — Marketing Specialist & Data Analyst</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-047WHEV69S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-047WHEV69S');
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -640,6 +649,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Yuqi Lin · Marketing Specialist & Data Analyst</p>
+  <p style="font-size: 0.75rem; margin-top: 8px; color: #999;">👥 Visitors: <span id="visitor-count">0</span></p>
 </footer>
 
 <script>
@@ -699,12 +709,34 @@ const translations = {
   }
 };
 
+// Visitor Counter
+function initializeVisitorCounter() {
+  const visitorCountElement = document.getElementById('visitor-count');
+
+  // Get current visitor count from localStorage
+  let visitorCount = localStorage.getItem('visitorCount');
+
+  if (!visitorCount) {
+    visitorCount = 1;
+  } else {
+    visitorCount = parseInt(visitorCount) + 1;
+  }
+
+  // Save updated count
+  localStorage.setItem('visitorCount', visitorCount);
+
+  // Display count with animation
+  visitorCountElement.textContent = visitorCount;
+  visitorCountElement.style.animation = 'pulse 0.5s ease-out';
+}
+
 // Current language state
 let currentLang = localStorage.getItem('selectedLang') || 'en';
 
-// Initialize language on page load
+// Initialize language and visitor counter on page load
 document.addEventListener('DOMContentLoaded', () => {
   switchLanguage(currentLang);
+  initializeVisitorCounter();
 });
 
 // Switch language function
