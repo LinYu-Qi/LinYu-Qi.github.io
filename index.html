@@ -28,6 +28,36 @@
       line-height: 1.65;
     }
 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(59, 91, 219, 0); }
+      50% { box-shadow: 0 0 20px rgba(59, 91, 219, 0.4); }
+    }
+    @keyframes scaleUp {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -56,21 +86,71 @@
       list-style: none;
       display: flex;
       gap: 32px;
+      align-items: center;
     }
     nav ul a {
       text-decoration: none;
       color: var(--muted);
       font-size: 0.9rem;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
     }
-    nav ul a:hover { color: var(--accent); }
+    nav ul a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    nav ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    nav ul a:hover::after {
+      width: 100%;
+    }
+
+    /* ── LANGUAGE SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      gap: 6px;
+      margin-left: 12px;
+      padding-left: 12px;
+      border-left: 1px solid var(--border);
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      animation: pulse 1s ease-in-out infinite;
+    }
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.05);
+    }
 
     /* ── SECTIONS ── */
     section {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 80px 24px;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     .section-label {
@@ -80,10 +160,20 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 10px;
+      animation: slideInLeft 0.5s ease-out;
     }
 
-    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; }
-    h2 { font-size: 1.6rem; font-weight: 700; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      animation: slideInLeft 0.6s ease-out;
+    }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      animation: slideInLeft 0.6s ease-out;
+    }
 
     /* ── HERO ── */
     #hero {
@@ -110,12 +200,31 @@
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
+      animation: scaleUp 0.5s ease-out;
     }
-    .btn-primary { background: var(--accent); color: #fff; border: 2px solid var(--accent); }
-    .btn-primary:hover { background: #2f4ac0; border-color: #2f4ac0; }
-    .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+    }
+    .btn-primary:hover {
+      background: #2f4ac0;
+      border-color: #2f4ac0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 91, 219, 0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 91, 219, 0.15);
+    }
 
     /* divider */
     .divider { border: none; border-top: 1px solid var(--border); }
@@ -162,6 +271,13 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 20px;
+      transition: all 0.3s ease;
+      animation: scaleUp 0.5s ease-out backwards;
+    }
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
     .skill-card .skill-icon { font-size: 1.6rem; margin-bottom: 10px; }
     .skill-card .skill-name { font-weight: 700; font-size: 0.95rem; }
@@ -187,9 +303,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: scaleUp 0.6s ease-out backwards;
     }
-    .project-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .project-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
     .project-thumb {
       height: 160px;
       background: var(--accent-light);
@@ -255,9 +376,15 @@
       font-size: 0.88rem;
       font-weight: 600;
       background: var(--bg);
-      transition: all 0.2s;
+      transition: all 0.3s ease;
+      animation: scaleUp 0.5s ease-out;
     }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 91, 219, 0.2);
+    }
     .contact-link .icon { font-size: 1.1rem; }
 
     /* ── FOOTER ── */
@@ -284,37 +411,41 @@
   <div class="inner">
     <a class="logo" href="#hero">Welber L</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" class="nav-link" data-i18n="About">About</a></li>
+      <li><a href="#skills" class="nav-link" data-i18n="Skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-i18n="Projects">Projects</a></li>
+      <li><a href="#contact" class="nav-link" data-i18n="Contact">Contact</a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+      </li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="section-label">Welcome</div>
-  <h1>Hi, I'm Welber L 👋</h1>
-  <p class="subtitle">Marketing Data Analyst specializing in multi-channel ad performance, user acquisition analytics, and ROI optimization. I turn data into actionable growth strategies.</p>
+  <div class="section-label" data-i18n="Welcome">Welcome</div>
+  <h1 data-i18n="Hi, I'm Welber L 👋">Hi, I'm Welber L 👋</h1>
+  <p class="subtitle" data-i18n="Subtitle">Marketing Data Analyst specializing in multi-channel ad performance, user acquisition analytics, and ROI optimization. I turn data into actionable growth strategies.</p>
   <div class="cta-row">
-    <a href="#projects" class="btn btn-primary">View My Work</a>
-    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <a href="#projects" class="btn btn-primary" data-i18n="View My Work">View My Work</a>
+    <a href="#contact" class="btn btn-secondary" data-i18n="Get In Touch">Get In Touch</a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label">About Me</div>
+  <div class="section-label" data-i18n="About Me">About Me</div>
   <div class="about-grid">
-    <div class="avatar-wrap">📊</div>
+    <div class="avatar-wrap"><img src="https://avatars.githubusercontent.com/u/LinYu-Qi?v=4" alt="Welber L" style="width:100%; height:100%; border-radius:10px; object-fit:cover;"></div>
     <div class="about-text">
-      <h2>Welber L</h2>
-      <div class="about-role">Marketing Data Analyst · Growth Analytics</div>
-      <p>I specialize in multi-channel marketing data analysis — monitoring ad performance and tracking core metrics including CPA, ROI, conversion rates, and user acquisition efficiency. I continuously optimize campaign strategies and budget allocation through data-driven insights.</p>
-      <p>I build ad performance evaluation models, lead user acquisition funnel analysis to identify conversion bottlenecks, and establish standardized marketing analytics frameworks. I collaborate cross-functionally with marketing, product, and operations teams to translate analysis into actionable growth solutions.</p>
+      <h2 data-i18n="Jane Doe">Welber L</h2>
+      <div class="about-role" data-i18n="Software Developer · Designer">Marketing Data Analyst · Growth Analytics</div>
+      <p data-i18n="AboutText1">I specialize in multi-channel marketing data analysis — monitoring ad performance and tracking core metrics including CPA, ROI, conversion rates, and user acquisition efficiency. I continuously optimize campaign strategies and budget allocation through data-driven insights.</p>
+      <p data-i18n="AboutText2">I build ad performance evaluation models, lead user acquisition funnel analysis to identify conversion bottlenecks, and establish standardized marketing analytics frameworks. I collaborate cross-functionally with marketing, product, and operations teams to translate analysis into actionable growth solutions.</p>
       <div class="cta-row" style="margin-top:24px;">
-        <a href="#" class="btn btn-secondary" style="font-size:0.85rem;">Download CV</a>
+        <a href="#" class="btn btn-secondary" style="font-size:0.85rem;" data-i18n="Download CV">Download CV</a>
       </div>
     </div>
   </div>
@@ -323,10 +454,10 @@
 <!-- SKILLS -->
 <section id="skills" style="padding:0;">
   <div class="inner-skills">
-    <div class="section-label">Skills</div>
-    <h2>What I Work With</h2>
+    <div class="section-label" data-i18n="Skills">Skills</div>
+    <h2 data-i18n="What I Work With">What I Work With</h2>
 
-    <p style="color:var(--muted); margin-top:10px; font-size:0.92rem;">Tools &amp; Technologies</p>
+    <p style="color:var(--muted); margin-top:10px; font-size:0.92rem;" data-i18n="Tools & Technologies">Tools &amp; Technologies</p>
     <div class="skills-grid" style="margin-top:14px;">
 
       <div class="skill-card">
@@ -359,7 +490,7 @@
 
     </div>
 
-    <p style="color:var(--muted); margin-top:28px; font-size:0.92rem;">Marketing &amp; Growth Analytics</p>
+    <p style="color:var(--muted); margin-top:28px; font-size:0.92rem;" data-i18n="Marketing & Growth Analytics">Marketing &amp; Growth Analytics</p>
     <div class="skills-grid" style="margin-top:14px;">
 
       <div class="skill-card">
@@ -410,8 +541,8 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label">Projects</div>
-  <h2>Selected Work</h2>
+  <div class="section-label" data-i18n="Projects">Projects</div>
+  <h2 data-i18n="Selected Work">Selected Work</h2>
   <div class="projects-grid">
 
     <div class="project-card">
@@ -487,19 +618,19 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">Contact</div>
-  <h2>Let's Work Together</h2>
+  <div class="section-label" data-i18n="Contact">Contact</div>
+  <h2 data-i18n="Let's Connect">Let's Work Together</h2>
   <div class="contact-box">
-    <h3 style="font-size:1.3rem;">Let's Connect</h3>
-    <p>Open to new opportunities in marketing analytics, growth analytics, and data-driven strategy roles. Feel free to reach out!</p>
+    <h3 style="font-size:1.3rem;" data-i18n="Let's Connect">Let's Connect</h3>
+    <p data-i18n="ContactText">Open to new opportunities in marketing analytics, growth analytics, and data-driven strategy roles. Feel free to reach out!</p>
     <div class="contact-links">
       <a href="mailto:raymond15318@gmail.com" class="contact-link">
         <span class="icon">✉️</span> raymond15318@gmail.com
       </a>
-      <a href="#" class="contact-link">
+      <a href="https://www.linkedin.com/in/yuqi-lin-117560255/" class="contact-link" target="_blank">
         <span class="icon">💼</span> LinkedIn
       </a>
-      <a href="#" class="contact-link">
+      <a href="https://github.com/LinYu-Qi" class="contact-link" target="_blank">
         <span class="icon">🐙</span> GitHub
       </a>
     </div>
@@ -510,6 +641,97 @@
 <footer>
   <p>© 2026 Welber L · Marketing Data Analyst</p>
 </footer>
+
+<script>
+// Language translations
+const translations = {
+  en: {
+    'Welcome': 'Welcome',
+    'Hi, I\'m Welber L 👋': 'Hi, I\'m Welber L 👋',
+    'Subtitle': 'Marketing Data Analyst specializing in multi-channel ad performance, user acquisition analytics, and ROI optimization. I turn data into actionable growth strategies.',
+    'View My Work': 'View My Work',
+    'Get In Touch': 'Get In Touch',
+    'About Me': 'About Me',
+    'Jane Doe': 'Welber L',
+    'Software Developer · Designer': 'Marketing Data Analyst · Growth Analytics',
+    'AboutText1': 'I specialize in multi-channel marketing data analysis — monitoring ad performance and tracking core metrics including CPA, ROI, conversion rates, and user acquisition efficiency. I continuously optimize campaign strategies and budget allocation through data-driven insights.',
+    'AboutText2': 'I build ad performance evaluation models, lead user acquisition funnel analysis to identify conversion bottlenecks, and establish standardized marketing analytics frameworks. I collaborate cross-functionally with marketing, product, and operations teams to translate analysis into actionable growth solutions.',
+    'Download CV': 'Download CV',
+    'Skills': 'Skills',
+    'What I Work With': 'What I Work With',
+    'Tools & Technologies': 'Tools & Technologies',
+    'Marketing & Growth Analytics': 'Marketing & Growth Analytics',
+    'Projects': 'Projects',
+    'Selected Work': 'Selected Work',
+    'Contact': 'Contact',
+    'Let\'s Connect': 'Let\'s Connect',
+    'ContactText': 'Open to new opportunities in marketing analytics, growth analytics, and data-driven strategy roles. Feel free to reach out!',
+    'About': 'About',
+    'Skills': 'Skills',
+    'Projects': 'Projects',
+    'Contact': 'Contact'
+  },
+  zh: {
+    'Welcome': '欢迎',
+    'Hi, I\'m Welber L 👋': '你好，我是Welber L 👋',
+    'Subtitle': '营销数据分析专家，专注于多渠道广告效果、用户获取分析和ROI优化。我将数据转化为可行的增长战略。',
+    'View My Work': '查看我的作品',
+    'Get In Touch': '联系我',
+    'About Me': '关于我',
+    'Jane Doe': 'Welber L',
+    'Software Developer · Designer': '营销数据分析师 · 增长分析',
+    'AboutText1': '我专注于多渠道营销数据分析——监控广告投放表现并追踪核心指标，包括用户获取成本（CPA）、投资回报率（ROI）、转化率及用户获取效率。通过数据洞察持续优化投放策略与预算分配。',
+    'AboutText2': '我建立广告投放成效评估模型，进行用户获取与转化漏斗分析以识别营销流程中的转化瓶颈，并建立标准化的营销活动成效分析框架。我与市场、产品及运营团队跨部门合作，将数据分析结果转化为可落地的优化方案。',
+    'Download CV': '下载简历',
+    'Skills': '技能',
+    'What I Work With': '我的技能',
+    'Tools & Technologies': '工具和技术',
+    'Marketing & Growth Analytics': '营销与增长分析',
+    'Projects': '项目',
+    'Selected Work': '精选作品',
+    'Contact': '联系方式',
+    'Let\'s Connect': '让我们连接',
+    'ContactText': '欢迎讨论营销分析、增长分析和数据驱动策略方面的新机会。随时联系我！',
+    'About': '关于',
+    'Skills': '技能',
+    'Projects': '项目',
+    'Contact': '联系方式'
+  }
+};
+
+// Current language state
+let currentLang = localStorage.getItem('selectedLang') || 'en';
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+  switchLanguage(currentLang);
+});
+
+// Switch language function
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('selectedLang', lang);
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    }
+  });
+
+  // Update all translatable elements
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
+}
+</script>
 
 </body>
 </html>
