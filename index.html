@@ -405,11 +405,63 @@
       color: var(--muted);
     }
 
+    /* ── CASE STUDIES ── */
+    .case-study {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      animation: slideInLeft 0.6s ease-out;
+    }
+    .case-study h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .case-study-item {
+      background: var(--bg);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .case-study-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .case-study-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .case-study-metric {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       #about .about-grid { grid-template-columns: 1fr; }
       .avatar-wrap { max-width: 140px; }
       .contact-box { padding: 32px 20px; }
+      .case-study-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -423,6 +475,7 @@
       <li><a href="#about" class="nav-link" data-i18n="About">About</a></li>
       <li><a href="#skills" class="nav-link" data-i18n="Skills">Skills</a></li>
       <li><a href="#projects" class="nav-link" data-i18n="Projects">Projects</a></li>
+      <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
       <li><a href="#contact" class="nav-link" data-i18n="Contact">Contact</a></li>
       <li class="lang-switcher">
         <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
@@ -447,12 +500,12 @@
 <section id="about">
   <div class="section-label" data-i18n="About Me">About Me</div>
   <div class="about-grid">
-    <div class="avatar-wrap"><img src="https://github.com/LinYu-Qi.png" alt="Welber L" style="width:100%; height:100%; border-radius:10px; object-fit:cover;"></div>
+    <div class="avatar-wrap"><img src="https://github.com/LinYu-Qi.png" alt="Yuqi Lin" style="width:100%; height:100%; border-radius:10px; object-fit:cover;"></div>
     <div class="about-text">
       <h2 data-i18n="Jane Doe">Yuqi Lin</h2>
       <div class="about-role" data-i18n="Software Developer · Designer">Marketing Specialist & Data Analyst</div>
       <p data-i18n="AboutText1">I'm a marketing and data analysis professional with cross-cultural experience across Taiwan and the Philippines. I specialize in end-to-end advertising operations, performance analytics, and data-driven strategy. My key achievements include doubling ad ROI through real-time monitoring, building AI-driven churn prediction models, and managing $8M+ monthly advertising budgets.</p>
-      <p data-i18n="AboutText2">I excel at designing Tableau dashboards, conducting financial reconciliation, identifying cost-saving opportunities (saved $50K+ monthly through vendor billing analysis), and collaborating across teams to optimize marketing spend and improve player/customer retention. I'm skilled in critical thinking, project management, and translating complex data into actionable business insights.</p>
+      <p data-i18n="AboutText2">I excel at designing Tableau dashboards, conducting financial reconciliation, identifying cost-saving opportunities (saved $50K+ monthly through vendor billing analysis), and collaborating across teams to optimize marketing spend and improve user/customer retention. I'm skilled in critical thinking, project management, and translating complex data into actionable business insights.</p>
       <div class="cta-row" style="margin-top:24px;">
         <a href="Yuqi_Lin_CV.pdf" download class="btn btn-secondary" style="font-size:0.85rem;" data-i18n="Download CV">Download CV</a>
       </div>
@@ -557,16 +610,16 @@
     <div class="project-card">
       <div class="project-thumb">📈</div>
       <div class="project-body">
-        <h3>Doubled Ad ROI Through Real-Time Monitoring</h3>
-        <p>At IGO Tech, successfully increased advertising ROI by 100% through real-time performance monitoring and optimization. Managed $8M monthly advertising budget across multiple channels, ensuring optimal spend allocation and maximum return on investment.</p>
+        <h3 data-i18n="Proj1Title">Doubled Ad ROI Through Real-Time Monitoring</h3>
+        <p data-i18n="Proj1Desc">At IGO Tech, successfully increased advertising ROI by 100% through real-time performance monitoring and optimization. Managed $8M monthly advertising budget across multiple channels, ensuring optimal spend allocation and maximum return on investment.</p>
         <div class="project-tags">
-          <span class="tag">Tableau</span>
-          <span class="tag">ROI Analysis</span>
-          <span class="tag">Budget Management</span>
-          <span class="tag">Real-time Monitoring</span>
+          <span class="tag" data-i18n="Tableau">Tableau</span>
+          <span class="tag" data-i18n="ROI Analysis">ROI Analysis</span>
+          <span class="tag" data-i18n="Budget Management">Budget Management</span>
+          <span class="tag" data-i18n="Real-time Monitoring">Real-time Monitoring</span>
         </div>
         <div class="project-links">
-          <a href="#">Case Study →</a>
+          <a href="#" data-i18n="Read Case Study">Read Case Study →</a>
         </div>
       </div>
     </div>
@@ -574,16 +627,16 @@
     <div class="project-card">
       <div class="project-thumb">🤖</div>
       <div class="project-body">
-        <h3>AI-Driven Churn Prediction Model</h3>
-        <p>At International Gaming System (Taiwan), developed an AI-based churn prediction model to identify at-risk users. The model enabled the operations team to proactively adjust strategies and improve player retention rates.</p>
+        <h3 data-i18n="Proj2Title">AI-Driven Churn Prediction Model</h3>
+        <p data-i18n="Proj2Desc">At International Gaming System (Taiwan), developed an AI-based churn prediction model to identify at-risk users. The model enabled the operations team to proactively adjust strategies and improve user retention rates.</p>
         <div class="project-tags">
-          <span class="tag">AI/ML</span>
-          <span class="tag">Python</span>
-          <span class="tag">Churn Prediction</span>
-          <span class="tag">Player Retention</span>
+          <span class="tag" data-i18n="AI/ML">AI/ML</span>
+          <span class="tag" data-i18n="Python">Python</span>
+          <span class="tag" data-i18n="Churn Prediction">Churn Prediction</span>
+          <span class="tag" data-i18n="User Retention">User Retention</span>
         </div>
         <div class="project-links">
-          <a href="#">View Details →</a>
+          <a href="#case-studies" data-i18n="Read Case Study">Read Case Study →</a>
         </div>
       </div>
     </div>
@@ -591,16 +644,16 @@
     <div class="project-card">
       <div class="project-thumb">💾</div>
       <div class="project-body">
-        <h3>Financial Reconciliation & Cost Optimization</h3>
-        <p>Improved advertising spend reconciliation processes by identifying vendor billing discrepancies. This analysis resulted in monthly savings exceeding $50K, demonstrating strong attention to detail and financial acumen.</p>
+        <h3 data-i18n="Proj3Title">Financial Reconciliation & Cost Optimization</h3>
+        <p data-i18n="Proj3Desc">Improved advertising spend reconciliation processes by identifying vendor billing discrepancies. This analysis resulted in monthly savings exceeding $50K, demonstrating strong attention to detail and financial acumen.</p>
         <div class="project-tags">
-          <span class="tag">Financial Analysis</span>
-          <span class="tag">Process Improvement</span>
-          <span class="tag">Budget Control</span>
-          <span class="tag">$50K+ Monthly Savings</span>
+          <span class="tag" data-i18n="Financial Analysis">Financial Analysis</span>
+          <span class="tag" data-i18n="Process Improvement">Process Improvement</span>
+          <span class="tag" data-i18n="Budget Control">Budget Control</span>
+          <span class="tag" data-i18n="Monthly Savings">$50K+ Monthly Savings</span>
         </div>
         <div class="project-links">
-          <a href="#">View Details →</a>
+          <a href="#case-studies" data-i18n="Read Case Study">Read Case Study →</a>
         </div>
       </div>
     </div>
@@ -608,21 +661,223 @@
     <div class="project-card">
       <div class="project-thumb">📊</div>
       <div class="project-body">
-        <h3>Tableau Dashboards for Gaming Analytics</h3>
-        <p>Designed and customized Tableau dashboards tracking critical gaming industry metrics including player lifetime value (LTV), retention rates, and the impact of in-game operational activities. Delivered actionable insights aligned with business needs.</p>
+        <h3 data-i18n="Proj4Title">Tableau Dashboards for Gaming Analytics</h3>
+        <p data-i18n="Proj4Desc">Designed and customized Tableau dashboards tracking critical e-commerce industry metrics including user lifetime value (LTV), retention rates, and the impact of in-game operational activities. Delivered actionable insights aligned with business needs.</p>
         <div class="project-tags">
-          <span class="tag">Tableau</span>
-          <span class="tag">Data Visualization</span>
-          <span class="tag">KPI Monitoring</span>
-          <span class="tag">Gaming Analytics</span>
+          <span class="tag" data-i18n="Tableau">Tableau</span>
+          <span class="tag" data-i18n="Data Visualization">Data Visualization</span>
+          <span class="tag" data-i18n="KPI Monitoring">KPI Monitoring</span>
+          <span class="tag" data-i18n="Gaming Analytics">Gaming Analytics</span>
         </div>
         <div class="project-links">
-          <a href="#">View Details →</a>
+          <a href="#case-studies" data-i18n="Read Case Study">Read Case Study →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🎰</div>
+      <div class="project-body">
+        <h3 data-i18n="Proj5Title">FlipCoin Campaign: User Activation & ROI Analysis</h3>
+        <p data-i18n="Proj5Desc">Comprehensive analysis of FlipPay campaign effectiveness across login and purchase task types. Analyzed reward-participation correlation, calculated 60.5% 7-day ROI, and identified campaign as a successful user activation driver.</p>
+        <div class="project-tags">
+          <span class="tag" data-i18n="Campaign Analytics">Campaign Analytics</span>
+          <span class="tag" data-i18n="ROI Analysis">ROI Analysis</span>
+          <span class="tag" data-i18n="SQL">SQL</span>
+          <span class="tag" data-i18n="User Activation">User Activation</span>
+        </div>
+        <div class="project-links">
+          <a href="#case-studies" data-i18n="Read Case Study">Read Case Study →</a>
         </div>
       </div>
     </div>
 
   </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies" style="border-top: 1px solid var(--border);">
+  <div class="section-label" data-i18n="Deep Dives">Deep Dives</div>
+  <h2 data-i18n="Case Studies">Case Studies</h2>
+  <p style="color: var(--muted); margin-bottom: 32px;" data-i18n="In-depth breakdowns of my key projects and the impact they delivered">In-depth breakdowns of my key projects and the impact they delivered</p>
+
+  <!-- Case Study 1: Doubled Ad ROI -->
+  <div class="case-study">
+    <h3 data-i18n="Doubled Advertising ROI: Real-Time Performance Optimization">📈 Doubled Advertising ROI: Real-Time Performance Optimization</h3>
+    <p style="color: var(--muted); margin-bottom: 20px;"><strong data-i18n="Company">Company:</strong> IGO Tech, Philippines | <strong data-i18n="Duration">Duration:</strong> 2025-Present</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="The Challenge">The Challenge</strong></h4>
+    <p data-i18n="CS1Challenge">Ad ROI was stagnating with no real-time visibility into campaign performance across multiple channels. The company was managing an $8M monthly advertising budget but lacked the insights needed to optimize spend allocation dynamically.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="My Approach">My Approach</strong></h4>
+    <p data-i18n="CS1Approach">I designed and implemented a real-time performance monitoring system that tracked key metrics (CPA, ROAS, conversion rates) across all advertising channels. I built Tableau dashboards that provided instant visibility into campaign performance, enabling rapid optimization decisions.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Results">Results</strong></h4>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="ROI Improvement">ROI Improvement</div>
+        <div class="case-study-value"><span class="case-study-metric">100% Increase</span> <span data-i18n="Doubled ad ROI through optimization">Doubled ad ROI through optimization</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Budget Managed">Budget Managed</div>
+        <div class="case-study-value"><span class="case-study-metric">$8M Monthly</span> <span data-i18n="Optimized allocation across channels">Optimized allocation across channels</span></div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Tools & Technologies">Tools & Technologies</strong></h4>
+    <div>
+      <span class="case-study-metric">Tableau</span>
+      <span class="case-study-metric">SQL</span>
+      <span class="case-study-metric">Data Analysis</span>
+      <span class="case-study-metric">Real-time Monitoring</span>
+    </div>
+  </div>
+
+  <!-- Case Study 2: Churn Prediction -->
+  <div class="case-study">
+    <h3 data-i18n="AI-Driven Churn Prediction: Proactive User Retention">🤖 AI-Driven Churn Prediction: Proactive User Retention</h3>
+    <p style="color: var(--muted); margin-bottom: 20px;"><strong data-i18n="Company">Company:</strong> International Gaming System (IGS), Taiwan | <strong data-i18n="Duration">Duration:</strong> 2024-2025</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="The Challenge">The Challenge</strong></h4>
+    <p data-i18n="The gaming platform was experiencing user churn with limited ability to identify at-risk users before they left. The operations team needed a data-driven approach to proactively intervene and improve retention rates.">The gaming platform was experiencing user churn with limited ability to identify at-risk users before they left. The operations team needed a data-driven approach to proactively intervene and improve retention rates.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="My Approach">My Approach</strong></h4>
+    <p data-i18n="I developed an AI-based churn prediction model using user behavior data, engagement metrics, and spending patterns. The model identified at-risk users with high accuracy, enabling the operations team to implement targeted retention strategies before churn occurred.">I developed an AI-based churn prediction model using user behavior data, engagement metrics, and spending patterns. The model identified at-risk users with high accuracy, enabling the operations team to implement targeted retention strategies before churn occurred.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Results">Results</strong></h4>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Prediction Accuracy">Prediction Accuracy</div>
+        <div class="case-study-value"><span class="case-study-metric">High Precision</span> <span data-i18n="Model identified at-risk users effectively">Model identified at-risk users effectively</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Retention Impact">Retention Impact</div>
+        <div class="case-study-value"><span class="case-study-metric">Improved Rates</span> <span data-i18n="Proactive interventions prevented churn">Proactive interventions prevented churn</span></div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Tools & Technologies">Tools & Technologies</strong></h4>
+    <div>
+      <span class="case-study-metric">Python</span>
+      <span class="case-study-metric">Machine Learning</span>
+      <span class="case-study-metric">Data Analysis</span>
+      <span class="case-study-metric">Predictive Modeling</span>
+    </div>
+  </div>
+
+  <!-- Case Study 3: Financial Optimization -->
+  <div class="case-study">
+    <h3 data-i18n="Financial Optimization: Identifying $50K+ Monthly Savings">💾 Financial Optimization: Identifying $50K+ Monthly Savings</h3>
+    <p style="color: var(--muted); margin-bottom: 20px;"><strong data-i18n="Company">Company:</strong> IGO Tech, Philippines | <strong data-i18n="Duration">Duration:</strong> 2025-Present</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="The Challenge">The Challenge</strong></h4>
+    <p data-i18n="With an $8M monthly advertising budget, there was a critical need to ensure accurate vendor invoicing and identify billing discrepancies. Manual reconciliation processes were time-consuming and prone to errors.">With an $8M monthly advertising budget, there was a critical need to ensure accurate vendor invoicing and identify billing discrepancies. Manual reconciliation processes were time-consuming and prone to errors.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="My Approach">My Approach</strong></h4>
+    <p data-i18n="I implemented a comprehensive financial reconciliation process, meticulously comparing vendor invoices against actual spending and KPI metrics. Through detailed analysis, I identified systematic billing discrepancies and overcharges across multiple vendors.">I implemented a comprehensive financial reconciliation process, meticulously comparing vendor invoices against actual spending and KPI metrics. Through detailed analysis, I identified systematic billing discrepancies and overcharges across multiple vendors.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Results">Results</strong></h4>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Monthly Savings">Monthly Savings</div>
+        <div class="case-study-value"><span class="case-study-metric">$50K+</span> <span data-i18n="Recurring monthly cost recovery">Recurring monthly cost recovery</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Process Improvement">Process Improvement</div>
+        <div class="case-study-value"><span class="case-study-metric">Streamlined</span> <span data-i18n="More accurate vendor reconciliation">More accurate vendor reconciliation</span></div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Tools & Technologies">Tools & Technologies</strong></h4>
+    <div>
+      <span class="case-study-metric">Financial Analysis</span>
+      <span class="case-study-metric">SQL</span>
+      <span class="case-study-metric">Data Reconciliation</span>
+      <span class="case-study-metric">Process Optimization</span>
+    </div>
+  </div>
+
+  <!-- Case Study 4: Tableau Dashboards -->
+  <div class="case-study">
+    <h3 data-i18n="Tableau Dashboards for Gaming Analytics">📊 Tableau Dashboards for Gaming Analytics</h3>
+    <p style="color: var(--muted); margin-bottom: 20px;"><strong data-i18n="Company">Company:</strong> International Gaming System (IGS), Taiwan | <strong data-i18n="Duration">Duration:</strong> 2024-2025</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="The Challenge">The Challenge</strong></h4>
+    <p data-i18n="CS4Challenge">The gaming platform needed a unified view of critical metrics including user lifetime value (LTV), retention rates, and the impact of operational activities. Stakeholders needed real-time access to actionable insights without needing SQL knowledge.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="My Approach">My Approach</strong></h4>
+    <p data-i18n="I designed and built multiple Tableau dashboards that visualized key platform metrics with interactive filters and drill-down capabilities. Dashboards tracked LTV trends, retention cohorts, and the performance impact of operational initiatives.">I designed and built multiple Tableau dashboards that visualized key platform metrics with interactive filters and drill-down capabilities. Dashboards tracked LTV trends, retention cohorts, and the performance impact of operational initiatives.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Results">Results</strong></h4>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Dashboards Created">Dashboards Created</div>
+        <div class="case-study-value"><span class="case-study-metric">Multiple</span> <span data-i18n="Interactive visualizations for all stakeholders">Interactive visualizations for all stakeholders</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Impact">Impact</div>
+        <div class="case-study-value"><span class="case-study-metric">Decision Speed</span> <span data-i18n="Faster data-driven decision making">Faster data-driven decision making</span></div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Tools & Technologies">Tools & Technologies</strong></h4>
+    <div>
+      <span class="case-study-metric">Tableau</span>
+      <span class="case-study-metric">Data Visualization</span>
+      <span class="case-study-metric">SQL</span>
+      <span class="case-study-metric">KPI Tracking</span>
+    </div>
+  </div>
+
+  <!-- Case Study 5: FlipCoin Campaign -->
+  <div class="case-study">
+    <h3 data-i18n="FlipPay Campaign: User Activation & ROI Optimization">🎰 FlipPay Campaign: User Activation & ROI Optimization</h3>
+    <p style="color: var(--muted); margin-bottom: 20px;"><strong data-i18n="Company">Company:</strong> IGO | <strong data-i18n="Duration">Duration:</strong> Feb 2024 | <strong data-i18n="Campaign Type">Campaign Type:</strong> <span data-i18n="User Activation Driver">User Activation Driver</span></p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="The Challenge">The Challenge</strong></h4>
+    <p data-i18n="The platform launched a FlipPay task campaign to drive user activation and engagement. The challenge was to validate campaign effectiveness, measure ROI across different task types (login vs. purchase), and understand the structural impact on user participation and purchase behavior.">The platform launched a FlipPay task campaign to drive user activation and engagement. The challenge was to validate campaign effectiveness, measure ROI across different task types (login vs. purchase), and understand the structural impact on user participation and purchase behavior.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="My Approach">My Approach</strong></h4>
+    <p data-i18n="I conducted a comprehensive campaign effectiveness analysis, comparing user participation across login and purchase tasks, analyzing purchase penetration rates, and calculating ROI by task type. I examined the relationship between reward intensity and participant numbers, and evaluated the short-term and long-term revenue impact of the campaign.">I conducted a comprehensive campaign effectiveness analysis, comparing user participation across login and purchase tasks, analyzing purchase penetration rates, and calculating ROI by task type. I examined the relationship between reward intensity and participant numbers, and evaluated the short-term and long-term revenue impact of the campaign.</p>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Results">Results</strong></h4>
+    <div class="case-study-grid">
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Betting Penetration Rate">Betting Penetration Rate</div>
+        <div class="case-study-value"><span class="case-study-metric">36%</span> <span data-i18n="on campaign day (vs. 25% baseline)">on campaign day (vs. 25% baseline)</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="7-Day ROI">7-Day ROI</div>
+        <div class="case-study-value"><span class="case-study-metric">60.5%</span> <span data-i18n="based on net betting increase of 5,873M">based on net betting increase of 5,873M</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Campaign Positioning">Campaign Positioning</div>
+        <div class="case-study-value"><span class="case-study-metric" data-i18n="User Expansion">User Expansion</span> <span data-i18n="Activation-driven, not high-value conversion">Activation-driven, not high-value conversion</span></div>
+      </div>
+      <div class="case-study-item">
+        <div class="case-study-label" data-i18n="Key Insight">Key Insight</div>
+        <div class="case-study-value"><span class="case-study-metric" data-i18n="Positive Correlation">Positive Correlation</span> <span data-i18n="Between reward strength and participation">Between reward strength and participation</span></div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Key Findings">Key Findings</strong></h4>
+    <ul style="color: var(--text); margin-left: 16px; margin-top: 12px;">
+      <li data-i18n="Finding1">Campaign successfully positioned as user activation driver, not high-value conversion mechanism</li>
+      <li data-i18n="Finding2">Clear positive correlation between reward intensity and participant volume</li>
+      <li data-i18n="Finding3">Purchase task ROI (60.5%) driven primarily by high participation rates</li>
+      <li data-i18n="Finding4">Campaign effectively improved touch rate and user engagement across platform</li>
+      <li data-i18n="Finding5">Short-term revenue gains validated campaign effectiveness despite acquisition-focused positioning</li>
+    </ul>
+
+    <h4 style="font-size: 1rem; margin-top: 16px; margin-bottom: 8px;"><strong data-i18n="Tools & Technologies">Tools & Technologies</strong></h4>
+    <div>
+      <span class="case-study-metric">SQL</span>
+      <span class="case-study-metric">Data Analysis</span>
+      <span class="case-study-metric">ROI Calculation</span>
+      <span class="case-study-metric">Campaign Analytics</span>
+    </div>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -657,12 +912,12 @@
 const translations = {
   en: {
     'Welcome': 'Welcome',
-    'Hi, I\'m Welber L 👋': 'Hi, I\'m Welber L 👋',
+    'Hi, I\'m Welber L 👋': 'Hi, I\'m Yuqi Lin 👋',
     'Subtitle': 'Marketing Data Analyst specializing in multi-channel ad performance, user acquisition analytics, and ROI optimization. I turn data into actionable growth strategies.',
     'View My Work': 'View My Work',
     'Get In Touch': 'Get In Touch',
     'About Me': 'About Me',
-    'Jane Doe': 'Welber L',
+    'Jane Doe': 'Yuqi Lin',
     'Software Developer · Designer': 'Marketing Data Analyst · Growth Analytics',
     'AboutText1': 'I specialize in multi-channel marketing data analysis — monitoring ad performance and tracking core metrics including CPA, ROI, conversion rates, and user acquisition efficiency. I continuously optimize campaign strategies and budget allocation through data-driven insights.',
     'AboutText2': 'I build ad performance evaluation models, lead user acquisition funnel analysis to identify conversion bottlenecks, and establish standardized marketing analytics frameworks. I collaborate cross-functionally with marketing, product, and operations teams to translate analysis into actionable growth solutions.',
@@ -676,6 +931,90 @@ const translations = {
     'Contact': 'Contact',
     'Let\'s Connect': 'Let\'s Connect',
     'ContactText': 'Open to new opportunities in marketing analytics, growth analytics, and data-driven strategy roles. Feel free to reach out!',
+    'Read Case Study': 'Read Case Study →',
+    'Deep Dives': 'Deep Dives',
+    'Case Studies': 'Case Studies',
+    'In-depth breakdowns of my key projects and the impact they delivered': 'In-depth breakdowns of my key projects and the impact they delivered',
+    'Doubled Advertising ROI: Real-Time Performance Optimization': 'Doubled Advertising ROI: Real-Time Performance Optimization',
+    'CS1Challenge': 'Ad ROI was stagnating with no real-time visibility into campaign performance across multiple channels. The company was managing an $8M monthly advertising budget but lacked the insights needed to optimize spend allocation dynamically.',
+    'CS1Approach': 'I designed and implemented a real-time performance monitoring system that tracked key metrics (CPA, ROAS, conversion rates) across all advertising channels. I built Tableau dashboards that provided instant visibility into campaign performance, enabling rapid optimization decisions.',
+    'Company': 'Company',
+    'Duration': 'Duration',
+    'The Challenge': 'The Challenge',
+    'My Approach': 'My Approach',
+    'Results': 'Results',
+    'ROI Improvement': 'ROI Improvement',
+    'Doubled ad ROI through optimization': 'Doubled ad ROI through optimization',
+    'Budget Managed': 'Budget Managed',
+    'Optimized allocation across channels': 'Optimized allocation across channels',
+    'AI-Driven Churn Prediction: Proactive User Retention': 'AI-Driven Churn Prediction: Proactive User Retention',
+    'Prediction Accuracy': 'Prediction Accuracy',
+    'Model identified at-risk users effectively': 'Model identified at-risk users effectively',
+    'Retention Impact': 'Retention Impact',
+    'Proactive interventions prevented churn': 'Proactive interventions prevented churn',
+    'Financial Optimization: Identifying $50K+ Monthly Savings': 'Financial Optimization: Identifying $50K+ Monthly Savings',
+    'With an $8M monthly advertising budget, there was a critical need to ensure accurate vendor invoicing and identify billing discrepancies. Manual reconciliation processes were time-consuming and prone to errors.': 'With an $8M monthly advertising budget, there was a critical need to ensure accurate vendor invoicing and identify billing discrepancies. Manual reconciliation processes were time-consuming and prone to errors.',
+    'I implemented a comprehensive financial reconciliation process, meticulously comparing vendor invoices against actual spending and KPI metrics. Through detailed analysis, I identified systematic billing discrepancies and overcharges across multiple vendors.': 'I implemented a comprehensive financial reconciliation process, meticulously comparing vendor invoices against actual spending and KPI metrics. Through detailed analysis, I identified systematic billing discrepancies and overcharges across multiple vendors.',
+    'Monthly Savings': 'Monthly Savings',
+    'Recurring monthly cost recovery': 'Recurring monthly cost recovery',
+    'Process Improvement': 'Process Improvement',
+    'More accurate vendor reconciliation': 'More accurate vendor reconciliation',
+    'Tableau Dashboards for Gaming Analytics': 'Tableau Dashboards for Gaming Analytics',
+    'CS4Challenge': 'The gaming platform needed a unified view of critical metrics including user lifetime value (LTV), retention rates, and the impact of operational activities. Stakeholders needed real-time access to actionable insights without needing SQL knowledge.',
+    'Dashboards Created': 'Dashboards Created',
+    'Interactive visualizations for all stakeholders': 'Interactive visualizations for all stakeholders',
+    'Impact': 'Impact',
+    'Faster data-driven decision making': 'Faster data-driven decision making',
+    'FlipPay Campaign: User Activation & ROI Optimization': 'FlipPay Campaign: User Activation & ROI Optimization',
+    'Campaign Type': 'Campaign Type',
+    'User Activation Driver': 'User Activation Driver',
+    'The platform launched a FlipPay task campaign to drive user activation and engagement. The challenge was to validate campaign effectiveness, measure ROI across different task types (login vs. purchase), and understand the structural impact on user participation and purchase behavior.': 'The platform launched a FlipPay task campaign to drive user activation and engagement. The challenge was to validate campaign effectiveness, measure ROI across different task types (login vs. purchase), and understand the structural impact on user participation and purchase behavior.',
+    'I conducted a comprehensive campaign effectiveness analysis, comparing user participation across login and purchase tasks, analyzing purchase penetration rates, and calculating ROI by task type. I examined the relationship between reward intensity and participant numbers, and evaluated the short-term and long-term revenue impact of the campaign.': 'I conducted a comprehensive campaign effectiveness analysis, comparing user participation across login and purchase tasks, analyzing purchase penetration rates, and calculating ROI by task type. I examined the relationship between reward intensity and participant numbers, and evaluated the short-term and long-term revenue impact of the campaign.',
+    'Betting Penetration Rate': 'Betting Penetration Rate',
+    'on campaign day (vs. 25% baseline)': 'on campaign day (vs. 25% baseline)',
+    '7-Day ROI': '7-Day ROI',
+    'based on net betting increase of 5,873M': 'based on net betting increase of 5,873M',
+    'Campaign Positioning': 'Campaign Positioning',
+    'User Expansion': 'User Expansion',
+    'Activation-driven, not high-value conversion': 'Activation-driven, not high-value conversion',
+    'Key Insight': 'Key Insight',
+    'Positive Correlation': 'Positive Correlation',
+    'Between reward strength and participation': 'Between reward strength and participation',
+    'Key Findings': 'Key Findings',
+    'Finding1': 'Campaign successfully positioned as user activation driver, not high-value conversion mechanism',
+    'Finding2': 'Clear positive correlation between reward intensity and participant volume',
+    'Finding3': 'Purchase task ROI (60.5%) driven primarily by high participation rates',
+    'Finding4': 'Campaign effectively improved touch rate and user engagement across platform',
+    'Finding5': 'Short-term revenue gains validated campaign effectiveness despite acquisition-focused positioning',
+    'Proj1Title': 'Doubled Ad ROI Through Real-Time Monitoring',
+    'Proj1Desc': 'At IGO Tech, successfully increased advertising ROI by 100% through real-time performance monitoring and optimization. Managed $8M monthly advertising budget across multiple channels, ensuring optimal spend allocation and maximum return on investment.',
+    'Proj2Title': 'AI-Driven Churn Prediction Model',
+    'Proj2Desc': 'At International Gaming System (Taiwan), developed an AI-based churn prediction model to identify at-risk users. The model enabled the operations team to proactively adjust strategies and improve user retention rates.',
+    'Proj3Title': 'Financial Reconciliation & Cost Optimization',
+    'Proj3Desc': 'Improved advertising spend reconciliation processes by identifying vendor billing discrepancies. This analysis resulted in monthly savings exceeding $50K, demonstrating strong attention to detail and financial acumen.',
+    'Proj4Title': 'Tableau Dashboards for Gaming Analytics',
+    'Proj4Desc': 'Designed and customized Tableau dashboards tracking critical e-commerce industry metrics including user lifetime value (LTV), retention rates, and the impact of in-game operational activities. Delivered actionable insights aligned with business needs.',
+    'Proj5Title': 'FlipCoin Campaign: User Activation & ROI Analysis',
+    'Proj5Desc': 'Comprehensive analysis of FlipPay campaign effectiveness across login and purchase task types. Analyzed reward-participation correlation, calculated 60.5% 7-day ROI, and identified campaign as a successful user activation driver.',
+    'Tableau': 'Tableau',
+    'ROI Analysis': 'ROI Analysis',
+    'Budget Management': 'Budget Management',
+    'Real-time Monitoring': 'Real-time Monitoring',
+    'AI/ML': 'AI/ML',
+    'Python': 'Python',
+    'Churn Prediction': 'Churn Prediction',
+    'User Retention': 'User Retention',
+    'Financial Analysis': 'Financial Analysis',
+    'Budget Control': 'Budget Control',
+    'Data Visualization': 'Data Visualization',
+    'KPI Monitoring': 'KPI Monitoring',
+    'Gaming Analytics': 'Gaming Analytics',
+    'Campaign Analytics': 'Campaign Analytics',
+    'User Activation': 'User Activation',
+    'I designed and built multiple Tableau dashboards that visualized key platform metrics with interactive filters and drill-down capabilities. Dashboards tracked LTV trends, retention cohorts, and the performance impact of operational initiatives.': 'I designed and built multiple Tableau dashboards that visualized key platform metrics with interactive filters and drill-down capabilities. Dashboards tracked LTV trends, retention cohorts, and the performance impact of operational initiatives.',
+    'I developed an AI-based churn prediction model using user behavior data, engagement metrics, and spending patterns. The model identified at-risk users with high accuracy, enabling the operations team to implement targeted retention strategies before churn occurred.': 'I developed an AI-based churn prediction model using user behavior data, engagement metrics, and spending patterns. The model identified at-risk users with high accuracy, enabling the operations team to implement targeted retention strategies before churn occurred.',
+    'The gaming platform was experiencing user churn with limited ability to identify at-risk users before they left. The operations team needed a data-driven approach to proactively intervene and improve retention rates.': 'The gaming platform was experiencing user churn with limited ability to identify at-risk users before they left. The operations team needed a data-driven approach to proactively intervene and improve retention rates.',
+    'E-Commerce Platform': 'E-Commerce Platform',
     'About': 'About',
     'Skills': 'Skills',
     'Projects': 'Projects',
@@ -683,29 +1022,116 @@ const translations = {
   },
   zh: {
     'Welcome': '欢迎',
-    'Hi, I\'m Welber L 👋': '你好，我是Welber L 👋',
-    'Subtitle': '营销数据分析专家，专注于多渠道广告效果、用户获取分析和ROI优化。我将数据转化为可行的增长战略。',
+    'Hi, I\'m Welber L 👋': '你好，我是林禹齊 👋',
+    'Subtitle': '营销数据分析专家，专注于多渠道广告效果、用户获取分析和投资回报率优化。我将数据转化为可行的增长战略。',
     'View My Work': '查看我的作品',
     'Get In Touch': '联系我',
     'About Me': '关于我',
-    'Jane Doe': 'Welber L',
-    'Software Developer · Designer': '营销数据分析师 · 增长分析',
-    'AboutText1': '我专注于多渠道营销数据分析——监控广告投放表现并追踪核心指标，包括用户获取成本（CPA）、投资回报率（ROI）、转化率及用户获取效率。通过数据洞察持续优化投放策略与预算分配。',
-    'AboutText2': '我建立广告投放成效评估模型，进行用户获取与转化漏斗分析以识别营销流程中的转化瓶颈，并建立标准化的营销活动成效分析框架。我与市场、产品及运营团队跨部门合作，将数据分析结果转化为可落地的优化方案。',
+    'Jane Doe': '林禹齊',
+    'Software Developer · Designer': '营销专家 · 数据分析',
+    'AboutText1': '我是跨越台湾与菲律宾的营销和数据分析专业人士。我专长于端到端广告运营、效果分析和数据驱动战略。我的主要成就包括通过实时监测将广告投资回报率翻倍、建立人工智能驱动的用户保留预测模型，以及管理每月800万元以上的广告预算。',
+    'AboutText2': '我擅长设计Tableau仪表板、进行财务对账、识别成本节省机会（节省超过50,000元/月），以及跨团队协作以优化营销购买并改善用户/客户留存。我在批判性思维、项目管理和将复杂数据转化为可行商业见解方面有专长。',
     'Download CV': '下载简历',
     'Skills': '技能',
     'What I Work With': '我的技能',
-    'Tools & Technologies': '工具和技术',
+    'Tools & Technologies': '工具与技术',
     'Marketing & Growth Analytics': '营销与增长分析',
     'Projects': '项目',
     'Selected Work': '精选作品',
+    'Proj1Title': '通过实时监测将广告投资回报率翻倍',
+    'Proj1Desc': '在IGO Tech公司，通过实时效果监测和优化成功将广告投资回报率提高100%。管理每月800万元的广告预算，跨多个渠道进行优化，确保最优支出配置和最大投资回报率。',
+    'Proj2Title': '人工智能驱动的用户保留预测模型',
+    'Proj2Desc': '在国际博彩系统公司（台湾），开发了基于人工智能的用户保留预测模型，用于识别风险用户。该模型使运营团队能够主动调整策略并提高用户留存率。',
+    'Proj3Title': '财务对账与成本优化',
+    'Proj3Desc': '通过识别供应商计费差异，改进了广告支出对账流程。此项分析产生了每月50,000元以上的节省，展示了对细节的关注和财务能力。',
+    'Proj4Title': '用于游戏分析的Tableau仪表板',
+    'Proj4Desc': '设计和定制了Tableau仪表板，追踪关键的电子商务行业指标，包括用户生命周期价值（LTV）、留存率和游戏内运营活动的影响。提供了与业务需求相符的可操作见解。',
+    'Proj5Title': 'FlipPay活动：用户激活与投资回报率分析',
+    'Proj5Desc': '对FlipPay活动的有效性进行了全面分析，涵盖登录和购买任务类型。分析了奖励与参与度的相关性，计算了60.5%的7天投资回报率，并确定该活动是一个成功的用户激活驱动。',
+    'Tableau': 'Tableau',
+    'ROI Analysis': '投资回报率分析',
+    'Budget Management': '预算管理',
+    'Real-time Monitoring': '实时监测',
+    'AI/ML': '人工智能/机器学习',
+    'Python': 'Python',
+    'Churn Prediction': '用户保留预测',
+    'User Retention': '用户留存',
+    'Financial Analysis': '财务分析',
+    'Process Improvement': '流程改进',
+    'Budget Control': '预算控制',
+    'Monthly Savings': '每月节省50,000元以上',
+    'Data Visualization': '数据可视化',
+    'KPI Monitoring': '关键绩效指标监测',
+    'Gaming Analytics': '游戏分析',
+    'Campaign Analytics': '活动分析',
+    'User Activation': '用户激活',
+    'Read Case Study': '查看案例研究',
     'Contact': '联系方式',
-    'Let\'s Connect': '让我们连接',
+    'Let\'s Connect': '让我们保持联系',
     'ContactText': '欢迎讨论营销分析、增长分析和数据驱动策略方面的新机会。随时联系我！',
     'About': '关于',
     'Skills': '技能',
     'Projects': '项目',
-    'Contact': '联系方式'
+    'Contact': '联系方式',
+    'Deep Dives': '深度案例',
+    'Case Studies': '案例研究',
+    'In-depth breakdowns of my key projects and the impact they delivered': '我的主要项目深度分析及其所带来的影响',
+    'Doubled Advertising ROI: Real-Time Performance Optimization': '广告投资回报率翻倍：实时效果优化',
+    'CS1Challenge': '广告投资回报率停滞不前，对多个渠道的活动效果缺乏实时可视化。公司管理着800万元月度广告预算，但缺乏动态优化支出配置所需的见解。',
+    'CS1Approach': '我设计并实施了一个实时效果监测系统，可以追踪所有广告渠道的关键指标（获客成本、广告回报率、转化率）。我构建了Tableau仪表板，为活动效果提供了即时可视化，能够快速做出优化决策。',
+    'Company': '公司',
+    'Duration': '时间',
+    'The Challenge': '挑战',
+    'My Approach': '我的方法',
+    'Results': '成果',
+    'Tools & Technologies': '工具与技术',
+    'ROI Improvement': '投资回报率改进',
+    'Doubled ad ROI through optimization': '通过优化使广告投资回报率翻倍',
+    'Budget Managed': '管理预算',
+    'Optimized allocation across channels': '跨渠道优化配置',
+    'AI-Driven Churn Prediction: Proactive User Retention': '人工智能驱动的用户保留预测：主动保留用户',
+    'The gaming platform was experiencing user churn with limited ability to identify at-risk users before they left. The operations team needed a data-driven approach to proactively intervene and improve retention rates.': '游戏平台正在经历用户流失，但在用户离开前识别风险用户的能力有限。运营团队需要一种数据驱动的方法来主动干预并提高留存率。',
+    'I developed an AI-based churn prediction model using user behavior data, engagement metrics, and spending patterns. The model identified at-risk users with high accuracy, enabling the operations team to implement targeted retention strategies before churn occurred.': '我使用玩家行为数据、参与指标和消费模式开发了基于人工智能的用户保留预测模型。该模型能够高精度地识别风险用户，使运营团队能够在流失发生前实施有针对性的保留策略。',
+    'Prediction Accuracy': '预测精度',
+    'Model identified at-risk users effectively': '模型有效识别风险用户',
+    'Retention Impact': '留存影响',
+    'Proactive interventions prevented churn': '主动干预防止了流失',
+    'Financial Optimization: Identifying $50K+ Monthly Savings': '财务优化：识别每月50,000元以上的节省',
+    'With an $8M monthly advertising budget, there was a critical need to ensure accurate vendor invoicing and identify billing discrepancies. Manual reconciliation processes were time-consuming and prone to errors.': '每月广告预算为800万元，迫切需要确保准确的供应商开票并识别计费差异。手动对账过程耗时且容易出错。',
+    'I implemented a comprehensive financial reconciliation process, meticulously comparing vendor invoices against actual spending and KPI metrics. Through detailed analysis, I identified systematic billing discrepancies and overcharges across multiple vendors.': '我实施了全面的财务对账流程，细致地将供应商发票与实际购买和关键绩效指标进行比较。通过详细分析，我识别了多个供应商的系统性计费差异和超额费用。',
+    'Monthly Savings': '月度节省',
+    'Recurring monthly cost recovery': '每月经常性成本回收',
+    'Process Improvement': '流程改进',
+    'More accurate vendor reconciliation': '更准确的供应商对账',
+    'Tableau Dashboards for Gaming Analytics': '用于游戏分析的Tableau仪表板',
+    'CS4Challenge': '游戏平台需要关键指标的统一视图，包括用户生命周期价值（LTV）、留存率和运营活动的影响。利益相关者需要实时访问可操作的见解，而无需SQL知识。',
+    'I designed and built multiple Tableau dashboards that visualized key platform metrics with interactive filters and drill-down capabilities. Dashboards tracked LTV trends, retention cohorts, and the performance impact of operational initiatives.': '我设计并构建了多个Tableau仪表板，用交互式筛选器和下钻功能可视化关键游戏指标。仪表板追踪了生命周期价值趋势、留存队列和运营计划的效果影响。',
+    'Dashboards Created': '创建的仪表板',
+    'Interactive visualizations for all stakeholders': '为所有利益相关者提供交互式可视化',
+    'Impact': '影响',
+    'Faster data-driven decision making': '更快的数据驱动决策制定',
+    'FlipPay Campaign: User Activation & ROI Optimization': 'FlipPay活动：用户激活和投资回报率优化',
+    'E-Commerce Platform': '在线电商平台',
+    'Campaign Type': '活动类型',
+    'User Activation Driver': '用户激活驱动',
+    'The platform launched a FlipPay task campaign to drive user activation and engagement. The challenge was to validate campaign effectiveness, measure ROI across different task types (login vs. purchase), and understand the structural impact on user participation and purchase behavior.': '该平台启动了FlipPay任务活动以驱动用户激活和参与。挑战是验证活动有效性，测量不同任务类型（登录与購買）的投资回报率，以及理解对用户参与和购买行为的结构性影响。',
+    'I conducted a comprehensive campaign effectiveness analysis, comparing user participation across login and purchase tasks, analyzing purchase penetration rates, and calculating ROI by task type. I examined the relationship between reward intensity and participant numbers, and evaluated the short-term and long-term revenue impact of the campaign.': '我进行了全面的活动效果分析，比较了登录和購買任务中的用户参与，分析了购买渗透率，并按任务类型计算了投资回报率。我研究了奖励强度与参与者数量之间的关系，并评估了该活动的短期和长期收入影响。',
+    'Betting Penetration Rate': '購買渗透率',
+    'on campaign day (vs. 25% baseline)': '在活动当天（相比25%的基线）',
+    '7-Day ROI': '7日投资回报率',
+    'based on net betting increase of 5,873M': '基于5,873万元的净購買增长',
+    'Campaign Positioning': '活动定位',
+    'User Expansion': '用户扩张',
+    'Activation-driven, not high-value conversion': '激活驱动，而非高价值转化',
+    'Key Insight': '关键洞察',
+    'Key Findings': '关键发现',
+    'Positive Correlation': '正相关关系',
+    'Between reward strength and participation': '奖励强度与参与度之间',
+    'Finding1': '活动成功定位为用户激活驱动，而非高价值转化机制',
+    'Finding2': '奖励强度与参与者数量之间存在明显的正相关关系',
+    'Finding3': '购买任务投资回报率（60.5%）主要由高参与率推动',
+    'Finding4': '活动有效改善了平台的触及率和用户参与度',
+    'Finding5': '尽管采购聚焦定位，短期收入增长验证了活动的有效性'
   }
 };
 
